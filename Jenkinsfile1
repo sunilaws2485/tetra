@@ -1,0 +1,28 @@
+pipeline {
+    agent {
+        any
+    }
+
+    stages()
+    {
+        stage("Checkout code") {
+            steps { 
+            git credentialsId: 'GITCREDS', url: 'https://github.com/sunilaws2485/tetra'
+            }
+        }
+    }
+
+        stage("Compile Code") {
+            steps {
+                def name = "sunil"
+                echo "welcome to pipeline coding ${name}"
+            }
+        }
+}
+
+
+
+      
+
+
+}
