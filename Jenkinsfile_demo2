@@ -1,0 +1,32 @@
+/*
+1. variables can be declared with def name above the pipeline and can be used by all stages
+2. Declare a environment block and  can used in all stages
+3. Use a Script Block and declare the varaiables
+*/
+
+
+def name = "foo"
+pipeline {
+    agent any
+
+      
+
+    stages
+    {
+        stage("Checkout code") {
+            steps{ 
+            git credentialsId: 'GITCREDS', url: 'https://github.com/sunilaws2485/my-app'
+            echo "welcome ${name}"
+            }
+        }
+
+        stage("Build") {
+            steps{ 
+
+                sh mv clean
+            
+            }
+        }
+
+    }
+}
